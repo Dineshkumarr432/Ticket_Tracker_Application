@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+
+	<title>Ticket List</title>
+	<style>
+		body {
+			background: #edf6f9;
+			margin: 0;
+		}
+
+
+		.heading {
+			position: relative;
+			width: 100%;
+			padding: 10px;
+		}
+
+		ul {
+			background-color: #006d77;
+			color: white;
+		}
+
+		ul li {
+			display: inline-block;
+		}
+
+		footer {
+			background-color: #f0f0f0;
+			/* Set a background color for the footer */
+			padding: 10px;
+			text-align: center;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li>
+			<h3 class="heading">Ticket Tracker Application</h3>
+		</li>
+		<li>
+			<a th:href="@{/admin/tickets}" class="btn btn-info mb-1 ml-2">Tickets</a>
+		</li>
+		<li>
+			<!-- Add a button -->
+			<a th:href="@{/admin/tickets/newTicket}" class="btn btn-info mb-1 ml-2">New Ticket</a>
+		</li>
+	</ul>
+	<div class="container">
+		<h3>Ticket Details List</h3>
+		<hr />
+		<!-- 
+		int id;
+String title;
+String description;
+String content;
+	-->
+		<!-- Add a button -->
+
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Id</th>
+					<th>Ticket Title</th>
+					<th>Ticket Short Description</th>
+					<th>Ticket Created on</th>
+					<th>Ticket Content</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td th:text="${ticket.id}" />
+					<td th:text="${ticket.title}" />
+					<td th:text="${ticket.description}" />
+					<td th:text="${ticket.createdDate}" />
+					<td th:text="${ticket.content}" />
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/admin/tickets}" class="btn btn-outline-primary">Back to Tickets List</a>
+	</div>
+	<footer class="footer">
+		copyright &COPY 2023 Great Learning All rights reserved
+	</footer>
+</body>
+
+</html>
